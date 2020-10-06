@@ -27,7 +27,7 @@ window.addEventListener("deviceorientation", function (evt) {
   let beta = evt.beta;
   let gamma = evt.gamma;
 
-  document.write(`${alpha} ${beta} ${gamma}`);
+  // document.write(`${alpha} ${beta} ${gamma}`);
 });
 
 window.addEventListener("devicemotion", function (evt) {
