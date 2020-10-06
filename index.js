@@ -1,16 +1,25 @@
 $(function () {
   $("#button").click(function () {
-    DeviceOrientationEvent.requestPermission()
-      .then(function (response) {
-        if (response === "granted") {
-          window.addEventListener("deviceorientation", deviceOrientation);
-        }
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+    request_permission();
   });
 });
+
+function request_permission() {
+  if (
+    DeviceMotionEvent &&
+    DeviceMotionEvent.requestPermission &&
+    typeof DeviceMotionEvent.requestPermission === "function"
+  ) {
+    DeviceMotionEvent.requestPermission();
+  }
+  if (
+    DeviceOrientationEvent &&
+    DeviceOrientationEvent.requestPermission &&
+    typeof DeviceOrientationEvent.requestPermission === "function"
+  ) {
+    DeviceOrientationEvent.requestPermission();
+  }
+}
 
 window.addEventListener(
   "deviceorientation",
