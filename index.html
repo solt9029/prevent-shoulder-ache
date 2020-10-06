@@ -17,7 +17,7 @@
               if (permissionState === 'granted') {
                 window.addEventListener("deviceorientation", function (event) {
                   document.getElementById('x').innerHTML = event.alpha;
-                  document.getElementById('y').innerHTML = event.beta;
+                  document.getElementById('y').innerHTML = event.beta; // 70-110くらいを許容する
                   document.getElementById('z').innerHTML = event.gamma;
                 })
               }
