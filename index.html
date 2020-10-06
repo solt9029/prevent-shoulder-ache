@@ -10,19 +10,15 @@
       <span id="z">0</span>
     </div>
     <script>
-      function deviceMotionRequest () {
-        if (DeviceMotionEvent.requestPermission) {
-          DeviceMotionEvent.requestPermission()
+      function deviceOrientationRequest () {
+        if (DeviceOrientationEvent.requestPermission) {
+          DeviceOrientationEvent.requestPermission()
             .then(permissionState => {
               if (permissionState === 'granted') {
-                window.addEventListener("devicemotion", function (event) {
-                  if (!event.accelerationIncludingGravity) {
-                    alert('event.accelerationIncludingGravity is null');
-                    return;
-                  }
-                  document.getElementById('x').innerHTML = event.accelerationIncludingGravity.x;
-                  document.getElementById('y').innerHTML = event.accelerationIncludingGravity.y;
-                  document.getElementById('z').innerHTML = event.accelerationIncludingGravity.z;
+                window.addEventListener("deviceorientation", function (event) {
+                  document.getElementById('x').innerHTML = event.alpha;
+                  document.getElementById('y').innerHTML = event.beta;
+                  document.getElementById('z').innerHTML = event.gamma;
                 })
               }
             })
