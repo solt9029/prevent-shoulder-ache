@@ -33,7 +33,7 @@ function listenDeviceOrientationEvent() {
     if (initialBadTime === null) {
       initialBadTime = currentTime;
     }
-    if (initialBadTime + 5000 < currentTime) {
+    if (initialBadTime + 3000 < currentTime) {
       $("body").css({
         color: "transparent",
         "text-shadow": "0 0 8px rgba(0,0,0,0.5)",
