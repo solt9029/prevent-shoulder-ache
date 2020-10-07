@@ -18,6 +18,11 @@ function listenDeviceOrientationEvent() {
     if (event.beta > 70 && event.beta < 110) {
       return;
     }
+    $("body").backgroundBlur({
+      imageURL: "https://bit.ly/2gFyM23",
+      blurAmount: 50,
+      imageClass: "bg-blur",
+    });
     document.getElementById("y").innerHTML = event.beta; // 70-110くらいを許容する
   });
 }
