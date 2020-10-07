@@ -1,3 +1,5 @@
+let initialBadTime = null;
+
 function handleClick() {
   if (DeviceOrientationEvent.requestPermission) {
     DeviceOrientationEvent.requestPermission()
@@ -15,14 +17,28 @@ function handleClick() {
 
 function listenDeviceOrientationEvent() {
   window.addEventListener("deviceorientation", function (event) {
+    // スマホが垂直に近い場合
     if (event.beta > 70 && event.beta < 110) {
+      if (initialBadTime !== null) {
+        initialBadTime = null;
+        $("body").css({
+          color: "",
+          "text-shadow": "",
+        });
+      }
       return;
     }
-    $("body").backgroundBlur({
-      imageURL: "https://bit.ly/2gFyM23",
-      blurAmount: 50,
-      imageClass: "bg-blur",
-    });
+
+    const currentTime = new Date().getTime();
+    if (initialBadTime === null) {
+      initialBadTime = currentTime;
+    }
+    if (initialBadTime + 5000 < currentTime) {
+      $("body").css({
+        color: "transparent",
+        "text-shadow": "0 0 8px rgba(0,0,0,0.5)",
+      });
+    }
   });
 }
 
