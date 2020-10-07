@@ -23,7 +23,6 @@ function listenDeviceOrientationEvent() {
       blurAmount: 50,
       imageClass: "bg-blur",
     });
-    document.getElementById("y").innerHTML = event.beta; // 70-110くらいを許容する
   });
 }
 
