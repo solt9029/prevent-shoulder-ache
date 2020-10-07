@@ -21,3 +21,9 @@ function listenDeviceOrientationEvent() {
     document.getElementById("y").innerHTML = event.beta; // 70-110くらいを許容する
   });
 }
+
+$(function () {
+  $(".modal").modal({
+    keyboard: false,
+  });
+});
