@@ -22,7 +22,7 @@ function listenDeviceOrientationEvent() {
       if (initialBadTime !== null) {
         initialBadTime = null;
         $("body, #link").css({
-          color: "",
+          color: "black",
           "text-shadow": "",
         });
       }
