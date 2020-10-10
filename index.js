@@ -37,7 +37,9 @@ function listenDeviceOrientationEvent() {
       $("body, #link").css({
         color: "transparent",
         "text-shadow":
-          "0 0 8px rgba(0,0,0," + (1 - initialBadTime / 6000) + ")",
+          "0 0 8px rgba(0,0,0," +
+          (1 - (currentTime - initialBadTime) / 6000) +
+          ")",
       });
     }
   });
