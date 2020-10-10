@@ -21,7 +21,7 @@ function listenDeviceOrientationEvent() {
     if (event.beta > 70 && event.beta < 110) {
       if (initialBadTime !== null) {
         initialBadTime = null;
-        $("body").css({
+        $("body, #link").css({
           color: "",
           "text-shadow": "",
         });
@@ -33,10 +33,10 @@ function listenDeviceOrientationEvent() {
     if (initialBadTime === null) {
       initialBadTime = currentTime;
     }
-    if (initialBadTime + 3000 < currentTime) {
-      $("body").css({
+    if (initialBadTime + 3000 >= currentTime) {
+      $("body, #link").css({
         color: "transparent",
-        "text-shadow": "0 0 8px rgba(0,0,0,0.5)",
+        "text-shadow": "0 0 8px rgba(0,0,0," + 1 - initialBadTime / 6000 + ")",
       });
     }
   });
